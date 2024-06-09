@@ -22,5 +22,6 @@ export declare class Duration {
     get seconds(): number;
     get milliseconds(): number;
     get microseconds(): number;
+    abs(): Duration;
 }
 export {};
