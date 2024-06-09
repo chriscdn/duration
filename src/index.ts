@@ -7,11 +7,11 @@ type TDurationConstructor = {
   microseconds?: number;
 };
 
-export const MicrosecondsPerMillisecond = 1e3;
-export const MicrosecondsPerSecond = 1e6;
-export const MicrosecondsPerMinute = 6e7;
-export const MicrosecondsPerHour = 3.6e9;
-export const MicrosecondsPerDay = 8.64e10;
+const MicrosecondsPerMillisecond = 1e3;
+const MicrosecondsPerSecond = 1e6;
+const MicrosecondsPerMinute = 6e7;
+const MicrosecondsPerHour = 3.6e9;
+const MicrosecondsPerDay = 8.64e10;
 
 export class Duration {
   private _microseconds = 0;
@@ -30,8 +30,28 @@ export class Duration {
     return new Duration(options);
   }
 
+  static toDays(options: TDurationConstructor) {
+    return Duration.with(options).days;
+  }
+
+  static toHours(options: TDurationConstructor) {
+    return Duration.with(options).hours;
+  }
+
+  static toMinuates(options: TDurationConstructor) {
+    return Duration.with(options).minutes;
+  }
+
+  static toSeconds(options: TDurationConstructor) {
+    return Duration.with(options).seconds;
+  }
+
   static toMilliseconds(options: TDurationConstructor) {
-    return new Duration(options).milliseconds;
+    return Duration.with(options).milliseconds;
+  }
+
+  static toMicroseconds(options: TDurationConstructor) {
+    return Duration.with(options).microseconds;
   }
 
   get days() {
