@@ -1,4 +1,5 @@
 type TDurationInput = {
+  weeks?: number;
   days?: number;
   hours?: number;
   minutes?: number;
@@ -12,12 +13,14 @@ const MicrosecondsPerSecond = 1e6;
 const MicrosecondsPerMinute = 6e7;
 const MicrosecondsPerHour = 3.6e9;
 const MicrosecondsPerDay = 8.64e10;
+const MicrosecondsPerWeek = 6.048e11;
 
 export class Duration {
   private _microseconds = 0;
 
   constructor(input: TDurationInput) {
     this._microseconds =
+      (input.weeks ?? 0) * MicrosecondsPerWeek +
       (input.days ?? 0) * MicrosecondsPerDay +
       (input.hours ?? 0) * MicrosecondsPerHour +
       (input.minutes ?? 0) * MicrosecondsPerMinute +
@@ -28,6 +31,10 @@ export class Duration {
 
   static with(input: TDurationInput) {
     return new Duration(input);
+  }
+
+  static toWeeks(input: TDurationInput) {
+    return Duration.with(input).weeks;
   }
 
   static toDays(input: TDurationInput) {
@@ -52,6 +59,10 @@ export class Duration {
 
   static toMicroseconds(input: TDurationInput) {
     return Duration.with(input).microseconds;
+  }
+
+  get weeks() {
+    return this._microseconds / MicrosecondsPerWeek;
   }
 
   get days() {

@@ -7,8 +7,7 @@ test("Basic", async () => {
   expect(Duration.with({ milliseconds: 1000 }).seconds).toBe(1);
   expect(Duration.with({ hours: 12 }).days).toBe(1 / 2);
   expect(Duration.with({ microseconds: 1 }).microseconds).toBe(1);
-
+  expect(Duration.with({ weeks: 2, days: 6, hours: 24 }).weeks).toBe(3);
   expect(Duration.toMilliseconds({ minutes: 60 })).toBe(3.6e6);
-
   expect(Duration.with({}).hours).toBe(0);
 });

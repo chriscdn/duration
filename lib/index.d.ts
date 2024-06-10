@@ -1,4 +1,5 @@
 type TDurationInput = {
+    weeks?: number;
     days?: number;
     hours?: number;
     minutes?: number;
@@ -10,12 +11,14 @@ export declare class Duration {
     private _microseconds;
     constructor(input: TDurationInput);
     static with(input: TDurationInput): Duration;
+    static toWeeks(input: TDurationInput): number;
     static toDays(input: TDurationInput): number;
     static toHours(input: TDurationInput): number;
     static toMinuates(input: TDurationInput): number;
     static toSeconds(input: TDurationInput): number;
     static toMilliseconds(input: TDurationInput): number;
     static toMicroseconds(input: TDurationInput): number;
+    get weeks(): number;
     get days(): number;
     get hours(): number;
     get minutes(): number;

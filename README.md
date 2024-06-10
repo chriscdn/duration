@@ -1,6 +1,6 @@
 # @chriscdn/duration
 
-The `Duration` class represents an elapsed time, and provides methods and getters to convert among different time units.
+The `Duration` class represents an elapsed time, and provides methods and getters to convert among different units.
 
 ## Installing
 
