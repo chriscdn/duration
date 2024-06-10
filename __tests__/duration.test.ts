@@ -9,4 +9,6 @@ test("Basic", async () => {
   expect(Duration.with({ microseconds: 1 }).microseconds).toBe(1);
 
   expect(Duration.toMilliseconds({ minutes: 60 })).toBe(3.6e6);
+
+  expect(Duration.with({}).hours).toBe(0);
 });

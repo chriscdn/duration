@@ -1,4 +1,4 @@
-type TDurationConstructor = {
+type TDurationInput = {
   days?: number;
   hours?: number;
   minutes?: number;
@@ -16,42 +16,42 @@ const MicrosecondsPerDay = 8.64e10;
 export class Duration {
   private _microseconds = 0;
 
-  constructor(options: TDurationConstructor) {
+  constructor(input: TDurationInput) {
     this._microseconds =
-      (options.days ?? 0) * MicrosecondsPerDay +
-      (options.hours ?? 0) * MicrosecondsPerHour +
-      (options.minutes ?? 0) * MicrosecondsPerMinute +
-      (options.seconds ?? 0) * MicrosecondsPerSecond +
-      (options.milliseconds ?? 0) * MicrosecondsPerMillisecond +
-      (options.microseconds ?? 0);
+      (input.days ?? 0) * MicrosecondsPerDay +
+      (input.hours ?? 0) * MicrosecondsPerHour +
+      (input.minutes ?? 0) * MicrosecondsPerMinute +
+      (input.seconds ?? 0) * MicrosecondsPerSecond +
+      (input.milliseconds ?? 0) * MicrosecondsPerMillisecond +
+      (input.microseconds ?? 0);
   }
 
-  static with(options: TDurationConstructor) {
-    return new Duration(options);
+  static with(input: TDurationInput) {
+    return new Duration(input);
   }
 
-  static toDays(options: TDurationConstructor) {
-    return Duration.with(options).days;
+  static toDays(input: TDurationInput) {
+    return Duration.with(input).days;
   }
 
-  static toHours(options: TDurationConstructor) {
-    return Duration.with(options).hours;
+  static toHours(input: TDurationInput) {
+    return Duration.with(input).hours;
   }
 
-  static toMinuates(options: TDurationConstructor) {
-    return Duration.with(options).minutes;
+  static toMinuates(input: TDurationInput) {
+    return Duration.with(input).minutes;
   }
 
-  static toSeconds(options: TDurationConstructor) {
-    return Duration.with(options).seconds;
+  static toSeconds(input: TDurationInput) {
+    return Duration.with(input).seconds;
   }
 
-  static toMilliseconds(options: TDurationConstructor) {
-    return Duration.with(options).milliseconds;
+  static toMilliseconds(input: TDurationInput) {
+    return Duration.with(input).milliseconds;
   }
 
-  static toMicroseconds(options: TDurationConstructor) {
-    return Duration.with(options).microseconds;
+  static toMicroseconds(input: TDurationInput) {
+    return Duration.with(input).microseconds;
   }
 
   get days() {

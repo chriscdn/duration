@@ -28,6 +28,7 @@
     "ts-jest": "^29.1.1"
   },
   "keywords": [
+    "date",
     "time",
     "duration"
   ]
