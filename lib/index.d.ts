@@ -18,6 +18,7 @@ export declare class Duration {
     static toSeconds(input: TDurationInput): number;
     static toMilliseconds(input: TDurationInput): number;
     static toMicroseconds(input: TDurationInput): number;
+    static difference(d1: Date, d2: Date): Duration;
     get weeks(): number;
     get days(): number;
     get hours(): number;

@@ -61,6 +61,10 @@ export class Duration {
     return Duration.with(input).microseconds;
   }
 
+  static difference(d1: Date, d2: Date) {
+    return Duration.with({ milliseconds: d2.getTime() - d1.getTime() });
+  }
+
   get weeks() {
     return this._microseconds / MicrosecondsPerWeek;
   }

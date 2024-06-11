@@ -11,3 +11,10 @@ test("Basic", async () => {
   expect(Duration.toMilliseconds({ minutes: 60 })).toBe(3.6e6);
   expect(Duration.with({}).hours).toBe(0);
 });
+
+test("Date", async () => {
+  const d1 = new Date("2024-01-01T00:00:00Z");
+  const d2 = new Date("2024-01-02T00:00:00Z");
+
+  expect(Duration.difference(d1, d2).days).toBe(1);
+});
