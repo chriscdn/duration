@@ -2,7 +2,7 @@
 
 The `Duration` class represents an elapsed time, and provides methods and getters to convert among units.
 
-## Installing
+## Installation
 
 Using npm:
 
@@ -18,9 +18,9 @@ yarn add @chriscdn/duration
 
 ## Usage
 
-Construct a `Duration` instance.
+### Creating a `Duration` Instance
 
-Each unit parameter (e.g., `days`, `hours`), is optional and defaults to zero if not provided.
+You can construct a `Duration` instance by providing unit parameters. Each parameter is optional and defaults to zero if not provided.
 
 ```js
 import { Duration } from "@chriscdn/duration";
@@ -35,29 +35,32 @@ const duration = new Duration({
   microseconds: 0,
 });
 
-duration.days; // 1
-duration.hours; // 24
-duration.minutes; // 1440
-duration.seconds; // 86400
-duration.milliseconds; // 86400000
-duration.microseconds; // 86400000000
+console.log(duration.days); // 1
+console.log(duration.hours); // 24
+console.log(duration.minutes); // 1440
+console.log(duration.seconds); // 86400
+console.log(duration.milliseconds); // 86400000
+console.log(duration.microseconds); // 86400000000
 ```
 
-A factory function exists to make the syntax more compact:
+### Factory Function
+
+A factory function is available to make the syntax a little more compact:
 
 ```js
 import { Duration } from "@chriscdn/duration";
 
 const duration = Duration.with({ hours: 12 });
 
-const days = duration.days; // 0.5
+console.log(duration.days); // 0.5
 
-// or
-
-const days = Duration.with({ hours: 12 }).days;
+// Or directly access properties
+console.log(Duration.with({ hours: 12 }).days); // 0.5
 ```
 
-Static method are also availble if the `Duration` instance isn't required:
+### Static Methods
+
+Static methods are also available for conversion:
 
 ```js
 import { Duration } from "@chriscdn/duration";
@@ -66,27 +69,30 @@ const hours = Duration.toHours({ hours: 1, minutes: 120 }); // 3
 const milliseconds = Duration.toMilliseconds({ hours: 1 }); // 3.6e+6
 ```
 
-This can be useful with the [setInterval](https://developer.mozilla.org/en-US/docs/Web/API/setInterval) and [setTimeout](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout) functions:
+These methods are useful with functions like [setInterval](https://developer.mozilla.org/en-US/docs/Web/API/setInterval) and [setTimeout](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout):
 
 ```js
-// once per hour
+// Execute callback once per hour
 setInterval(callback, Duration.toMilliseconds({ hours: 1 }));
 ```
 
-A `Duration` instance can also be constructed from two dates.
+### Constructing from Dates
+
+A `Duration` instance can be created from the difference between two dates:
 
 ```js
 const d1 = new Date("2024-01-01T00:00:00Z");
 const d2 = new Date("2024-01-02T00:00:00Z");
 
 const duration = Duration.difference(d1, d2);
-duration.days === 1; // true
+console.log(duration.days === 1); // true
 
-// this is functionally equivalent to:
-
-const duration = Duration.with({ milliseconds: d2.getTime() - d1.getTime() });
+// This is functionally equivalent to:
+const duration = Duration.with({
+  milliseconds: d2.getTime() - d1.getTime(),
+});
 ```
 
 ## License
 
-[MIT](LICENSE)
+[MIT](LICENSE).
