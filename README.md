@@ -53,9 +53,6 @@ import { Duration } from "@chriscdn/duration";
 const duration = Duration.with({ hours: 12 });
 
 console.log(duration.days); // 0.5
-
-// Or directly access properties
-console.log(Duration.with({ hours: 12 }).days); // 0.5
 ```
 
 ### Static Methods
@@ -95,4 +92,4 @@ const duration = Duration.with({
 
 ## License
 
-[MIT](LICENSE).
+[MIT](LICENSE)

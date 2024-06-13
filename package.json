@@ -1,7 +1,7 @@
 {
   "name": "@chriscdn/duration",
-  "version": "1.0.0",
-  "description": "Convert between microseconds, milliseconds, seconds, minutes, hours, and days.",
+  "version": "1.0.1",
+  "description": "Convert between microseconds, milliseconds, seconds, minutes, hours, days, and weeks.",
   "repository": "https://github.com/chriscdn/duration",
   "author": "Christopher Meyer <chris@schwiiz.org>",
   "license": "MIT",
@@ -30,6 +30,7 @@
   "keywords": [
     "date",
     "time",
-    "duration"
+    "duration",
+    "conversion"
   ]
 }
