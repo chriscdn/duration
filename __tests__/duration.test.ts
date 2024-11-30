@@ -1,3 +1,4 @@
+import { expect, test } from "vitest";
 import { Duration } from "../src/index";
 
 test("Basic", async () => {

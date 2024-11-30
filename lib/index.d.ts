@@ -14,7 +14,7 @@ export declare class Duration {
     static toWeeks(input: TDurationInput): number;
     static toDays(input: TDurationInput): number;
     static toHours(input: TDurationInput): number;
-    static toMinuates(input: TDurationInput): number;
+    static toMinutes(input: TDurationInput): number;
     static toSeconds(input: TDurationInput): number;
     static toMilliseconds(input: TDurationInput): number;
     static toMicroseconds(input: TDurationInput): number;

@@ -19,8 +19,7 @@ export class Duration {
   private _microseconds = 0;
 
   constructor(input: TDurationInput) {
-    this._microseconds =
-      (input.weeks ?? 0) * MicrosecondsPerWeek +
+    this._microseconds = (input.weeks ?? 0) * MicrosecondsPerWeek +
       (input.days ?? 0) * MicrosecondsPerDay +
       (input.hours ?? 0) * MicrosecondsPerHour +
       (input.minutes ?? 0) * MicrosecondsPerMinute +
@@ -45,7 +44,7 @@ export class Duration {
     return Duration.with(input).hours;
   }
 
-  static toMinuates(input: TDurationInput) {
+  static toMinutes(input: TDurationInput) {
     return Duration.with(input).minutes;
   }
 
