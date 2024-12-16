@@ -92,7 +92,23 @@ export class Duration {
     return this._microseconds;
   }
 
-  abs() {
+  addTo(d: Date) {
+    return new Date(d.getTime() + this.milliseconds);
+  }
+
+  subtractFrom(d: Date) {
+    return new Date(d.getTime() - this.milliseconds);
+  }
+
+  fromNow() {
+    return this.addTo(new Date());
+  }
+
+  ago() {
+    return this.subtractFrom(new Date());
+  }
+
+  get abs() {
     return new Duration({ microseconds: Math.abs(this.microseconds) });
   }
 }

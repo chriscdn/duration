@@ -19,3 +19,13 @@ test("Date", async () => {
 
   expect(Duration.difference(d1, d2).days).toBe(1);
 });
+
+test("From Now", async () => {
+  const d1 = new Date("2024-01-01T00:00:00Z");
+  const d2 = new Date("2024-01-02T00:00:00Z");
+
+  expect(Duration.with({ days: 1 }).addTo(d1)).toStrictEqual(d2);
+  expect(Duration.with({ days: 1 }).subtractFrom(d2)).toStrictEqual(d1);
+});
+
+console.log(Duration.with({ days: 1 }).ago());

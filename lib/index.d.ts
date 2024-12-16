@@ -26,6 +26,10 @@ export declare class Duration {
     get seconds(): number;
     get milliseconds(): number;
     get microseconds(): number;
-    abs(): Duration;
+    addTo(d: Date): Date;
+    subtractFrom(d: Date): Date;
+    fromNow(): Date;
+    ago(): Date;
+    get abs(): Duration;
 }
 export {};
