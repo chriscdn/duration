@@ -1,6 +1,6 @@
 {
   "name": "@chriscdn/duration",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Convert between microseconds, milliseconds, seconds, minutes, hours, days, and weeks.",
   "repository": "https://github.com/chriscdn/duration",
   "author": "Christopher Meyer <chris@schwiiz.org>",
