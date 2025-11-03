@@ -1,4 +1,4 @@
-type TDurationInput = {
+type DurationInit = {
   weeks?: number;
   days?: number;
   hours?: number;
@@ -18,7 +18,7 @@ const MicrosecondsPerWeek = 6.048e11;
 export class Duration {
   private _microseconds = 0;
 
-  constructor(input: TDurationInput) {
+  constructor(input: DurationInit) {
     this._microseconds = (input.weeks ?? 0) * MicrosecondsPerWeek +
       (input.days ?? 0) * MicrosecondsPerDay +
       (input.hours ?? 0) * MicrosecondsPerHour +
@@ -28,87 +28,87 @@ export class Duration {
       (input.microseconds ?? 0);
   }
 
-  static with(input: TDurationInput) {
+  static with(input: DurationInit) {
     return new Duration(input);
   }
 
-  static toWeeks(input: TDurationInput) {
+  static toWeeks(input: DurationInit) {
     return Duration.with(input).weeks;
   }
 
-  static toDays(input: TDurationInput) {
+  static toDays(input: DurationInit) {
     return Duration.with(input).days;
   }
 
-  static toHours(input: TDurationInput) {
+  static toHours(input: DurationInit) {
     return Duration.with(input).hours;
   }
 
-  static toMinutes(input: TDurationInput) {
+  static toMinutes(input: DurationInit) {
     return Duration.with(input).minutes;
   }
 
-  static toSeconds(input: TDurationInput) {
+  static toSeconds(input: DurationInit) {
     return Duration.with(input).seconds;
   }
 
-  static toMilliseconds(input: TDurationInput) {
+  static toMilliseconds(input: DurationInit) {
     return Duration.with(input).milliseconds;
   }
 
-  static toMicroseconds(input: TDurationInput) {
+  static toMicroseconds(input: DurationInit) {
     return Duration.with(input).microseconds;
   }
 
-  static difference(d1: Date, d2: Date) {
+  static difference(d1: Date, d2: Date): Duration {
     return Duration.with({ milliseconds: d2.getTime() - d1.getTime() });
   }
 
-  get weeks() {
+  get weeks(): number {
     return this._microseconds / MicrosecondsPerWeek;
   }
 
-  get days() {
+  get days(): number {
     return this._microseconds / MicrosecondsPerDay;
   }
 
-  get hours() {
+  get hours(): number {
     return this._microseconds / MicrosecondsPerHour;
   }
 
-  get minutes() {
+  get minutes(): number {
     return this._microseconds / MicrosecondsPerMinute;
   }
 
-  get seconds() {
+  get seconds(): number {
     return this._microseconds / MicrosecondsPerSecond;
   }
 
-  get milliseconds() {
+  get milliseconds(): number {
     return this._microseconds / MicrosecondsPerMillisecond;
   }
 
-  get microseconds() {
+  get microseconds(): number {
     return this._microseconds;
   }
 
-  addTo(d: Date) {
+  addTo(d: Date): Date {
     return new Date(d.getTime() + this.milliseconds);
   }
 
-  subtractFrom(d: Date) {
+  subtractFrom(d: Date): Date {
     return new Date(d.getTime() - this.milliseconds);
   }
 
-  fromNow() {
+  fromNow(): Date {
     return this.addTo(new Date());
   }
 
-  ago() {
+  ago(): Date {
     return this.subtractFrom(new Date());
   }
 
-  get abs() {
+  get abs(): Duration {
     return new Duration({ microseconds: Math.abs(this.microseconds) });
   }
 }

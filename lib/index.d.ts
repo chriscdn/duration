@@ -1,4 +1,4 @@
-type TDurationInput = {
+type DurationInit = {
     weeks?: number;
     days?: number;
     hours?: number;
@@ -9,15 +9,15 @@ type TDurationInput = {
 };
 export declare class Duration {
     private _microseconds;
-    constructor(input: TDurationInput);
-    static with(input: TDurationInput): Duration;
-    static toWeeks(input: TDurationInput): number;
-    static toDays(input: TDurationInput): number;
-    static toHours(input: TDurationInput): number;
-    static toMinutes(input: TDurationInput): number;
-    static toSeconds(input: TDurationInput): number;
-    static toMilliseconds(input: TDurationInput): number;
-    static toMicroseconds(input: TDurationInput): number;
+    constructor(input: DurationInit);
+    static with(input: DurationInit): Duration;
+    static toWeeks(input: DurationInit): number;
+    static toDays(input: DurationInit): number;
+    static toHours(input: DurationInit): number;
+    static toMinutes(input: DurationInit): number;
+    static toSeconds(input: DurationInit): number;
+    static toMilliseconds(input: DurationInit): number;
+    static toMicroseconds(input: DurationInit): number;
     static difference(d1: Date, d2: Date): Duration;
     get weeks(): number;
     get days(): number;
