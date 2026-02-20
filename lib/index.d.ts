@@ -7,7 +7,7 @@ type DurationInit = {
     milliseconds?: number;
     microseconds?: number;
 };
-export declare class Duration {
+declare class Duration {
     private _microseconds;
     constructor(input: DurationInit);
     static with(input: DurationInit): Duration;
@@ -32,4 +32,5 @@ export declare class Duration {
     ago(): Date;
     get abs(): Duration;
 }
-export {};
+
+export { Duration };

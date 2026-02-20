@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { Duration } from "../src/index";
+import { Duration } from "../lib";
 
 test("Basic", async () => {
   expect(Duration.with({ days: 4 }).seconds).toBe(345600);
