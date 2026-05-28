@@ -15,11 +15,12 @@ const MicrosecondsPerHour = 3.6e9;
 const MicrosecondsPerDay = 8.64e10;
 const MicrosecondsPerWeek = 6.048e11;
 
-export class Duration {
+class Duration {
   private _microseconds = 0;
 
   constructor(input: DurationInit) {
-    this._microseconds = (input.weeks ?? 0) * MicrosecondsPerWeek +
+    this._microseconds =
+      (input.weeks ?? 0) * MicrosecondsPerWeek +
       (input.days ?? 0) * MicrosecondsPerDay +
       (input.hours ?? 0) * MicrosecondsPerHour +
       (input.minutes ?? 0) * MicrosecondsPerMinute +
@@ -112,3 +113,5 @@ export class Duration {
     return new Duration({ microseconds: Math.abs(this.microseconds) });
   }
 }
+
+export { Duration };
