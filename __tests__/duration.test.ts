@@ -28,4 +28,8 @@ test("From Now", async () => {
   expect(Duration.with({ days: 1 }).subtractFrom(d2)).toStrictEqual(d1);
 });
 
+test("Floats Now", async () => {
+  expect(Duration.toMilliseconds({ seconds: 0.8 })).toBe(800);
+});
+
 console.log(Duration.with({ days: 1 }).ago());
